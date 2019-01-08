@@ -7,7 +7,9 @@
         "test": "jest"
     },
     "husky": {
-        "pre-push": "npm test"
+        "hooks": {
+            "pre-push": "npm test"
+        }
     },
     "keywords": [
         "REST",
