@@ -51,4 +51,20 @@ describe('paypal', () => {
             });
         });
     });
+
+    describe('stopRecurring()', () => {
+        beforeEach(() =>
+            paypalEndpoint.stopRecurring({ id_paypal_recurring: 123 }),
+        );
+
+        it('should call http client with proper uri and params', () => {
+            expect(mockedGot.post).toHaveBeenCalled();
+            const [uri, params] = mockedGot.post.mock.calls[0];
+
+            expect(uri).toEqual('/paypal/stopRecurring');
+            expect(params).toMatchObject({
+                body: JSON.stringify({ id_paypal_recurring: 123 }),
+            });
+        });
+    });
 });
