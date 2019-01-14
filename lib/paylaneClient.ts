@@ -1,5 +1,6 @@
 import got from 'got';
 import { createCardsEndpoint } from './endpoints/cards/cards';
+import { createDirectdebitsEndpoint } from './endpoints/directdebits/directdebits';
 import { createPaypalEndpoint } from './endpoints/paypal/paypal';
 
 type gotWithExtend = typeof got & {
@@ -26,6 +27,7 @@ export const setup = (credentials: PaylaneCredentials) => {
 
     return {
         card: createCardsEndpoint(client),
+        directdebits: createDirectdebitsEndpoint(client),
         paypal: createPaypalEndpoint(client),
     };
 };
