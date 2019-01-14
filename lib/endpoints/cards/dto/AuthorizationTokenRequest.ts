@@ -1,3 +1,3 @@
-import { CardTokenSaleRequest } from './CardTokenSaleRequest';
+import { TokenSaleRequest } from './TokenSaleRequest';
 
-export type AuthorizationTokenRequest = CardTokenSaleRequest;
+export type AuthorizationTokenRequest = TokenSaleRequest;

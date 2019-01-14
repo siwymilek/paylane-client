@@ -1,3 +1,3 @@
-import { CardSaleRequest } from './CardSaleRequest';
+import { SaleRequest } from './SaleRequest';
 
-export type AuthorizationRequest = CardSaleRequest;
+export type AuthorizationRequest = SaleRequest;

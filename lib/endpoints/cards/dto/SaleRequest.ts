@@ -1,9 +1,9 @@
 import { Customer } from '../../../common/dto/Customer';
 import { Sale } from '../../../common/dto/Sale';
-import { CardToken } from './CardToken';
+import { Card } from './Card';
 
-export interface CardTokenSaleRequest {
+export interface SaleRequest {
     sale: Sale;
     customer: Customer;
-    card: CardToken;
+    card: Card;
 }

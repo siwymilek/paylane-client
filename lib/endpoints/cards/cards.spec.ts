@@ -6,7 +6,7 @@ describe('Cards', () => {
     let cardsEndpoint: ReturnType<typeof createCardsEndpoint>;
     let mockedGot: jest.Mocked<typeof got>;
 
-    const cardParams = {
+    const requestParams = {
         card: {
             card_code: '123',
             card_number: '41111111111111',
@@ -35,7 +35,7 @@ describe('Cards', () => {
     afterEach(() => mockedGot.post.mockClear());
 
     describe('sale()', () => {
-        beforeEach(() => cardsEndpoint.sale(cardParams));
+        beforeEach(() => cardsEndpoint.sale(requestParams));
 
         it('should call http client with proper uri and params', () => {
             expect(mockedGot.post).toHaveBeenCalled();
@@ -43,7 +43,7 @@ describe('Cards', () => {
 
             expect(uri).toEqual('/cards/sale');
             expect(params).toMatchObject({
-                body: JSON.stringify(cardParams),
+                body: JSON.stringify(requestParams),
             });
         });
     });
@@ -51,7 +51,7 @@ describe('Cards', () => {
     describe('saleByToken()', () => {
         beforeEach(() =>
             cardsEndpoint.saleByToken({
-                ...cardParams,
+                ...requestParams,
                 card: {
                     token: 'abc',
                 },
@@ -65,7 +65,7 @@ describe('Cards', () => {
             expect(uri).toEqual('/cards/saleByToken');
             expect(params).toMatchObject({
                 body: JSON.stringify({
-                    ...cardParams,
+                    ...requestParams,
                     card: {
                         token: 'abc',
                     },
@@ -75,7 +75,7 @@ describe('Cards', () => {
     });
 
     describe('authorization()', () => {
-        beforeEach(() => cardsEndpoint.authorization(cardParams));
+        beforeEach(() => cardsEndpoint.authorization(requestParams));
 
         it('should call http client with proper uri and params', () => {
             expect(mockedGot.post).toHaveBeenCalled();
@@ -83,7 +83,7 @@ describe('Cards', () => {
 
             expect(uri).toEqual('/cards/authorization');
             expect(params).toMatchObject({
-                body: JSON.stringify(cardParams),
+                body: JSON.stringify(requestParams),
             });
         });
     });
@@ -91,7 +91,7 @@ describe('Cards', () => {
     describe('authorizationByToken()', () => {
         beforeEach(() =>
             cardsEndpoint.authorizationByToken({
-                ...cardParams,
+                ...requestParams,
                 card: {
                     token: 'abc',
                 },
@@ -105,10 +105,72 @@ describe('Cards', () => {
             expect(uri).toEqual('/cards/authorizationByToken');
             expect(params).toMatchObject({
                 body: JSON.stringify({
-                    ...cardParams,
+                    ...requestParams,
                     card: {
                         token: 'abc',
                     },
+                }),
+            });
+        });
+    });
+
+    describe('generateToken()', () => {
+        beforeEach(() =>
+            cardsEndpoint.generateToken({
+                ...requestParams.card,
+                public_api_key: 'abc',
+            }),
+        );
+
+        it('should call http client with proper uri and params', () => {
+            expect(mockedGot.post).toHaveBeenCalled();
+            const [uri, params] = mockedGot.post.mock.calls[0];
+
+            expect(uri).toEqual('/cards/generateToken');
+            expect(params).toMatchObject({
+                body: JSON.stringify({
+                    ...requestParams.card,
+                    public_api_key: 'abc',
+                }),
+            });
+        });
+    });
+
+    describe('check()', () => {
+        beforeEach(() =>
+            cardsEndpoint.check({
+                card_number: '123',
+            }),
+        );
+
+        it('should call http client with proper uri and params', () => {
+            expect(mockedGot.post).toHaveBeenCalled();
+            const [uri, params] = mockedGot.post.mock.calls[0];
+
+            expect(uri).toEqual('/cards/check');
+            expect(params).toMatchObject({
+                body: JSON.stringify({
+                    card_number: '123',
+                }),
+            });
+        });
+    });
+
+    describe('checkByToken()', () => {
+        beforeEach(() =>
+            cardsEndpoint.checkByToken({
+                token: '123',
+            }),
+        );
+
+        it('should call http client with proper uri and params', () => {
+            expect(mockedGot.post).toHaveBeenCalled();
+            const [uri, params] = mockedGot.post.mock.calls[0];
+
+            expect(uri).toEqual('/cards/checkByToken');
+            expect(params).toMatchObject({
+                body: JSON.stringify({
+                    token: '123',
                 }),
             });
         });

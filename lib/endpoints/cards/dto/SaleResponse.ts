@@ -1,7 +1,7 @@
-import { CardSaleError } from './CardSaleError';
+import { SaleError } from './SaleError';
 
-export interface CardSaleResponse {
-    error?: CardSaleError;
+export interface SaleResponse {
+    error?: SaleError;
     success: true;
     id_sale: number;
     avs_result: string;

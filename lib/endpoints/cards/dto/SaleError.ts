@@ -1,4 +1,4 @@
-export interface CardSaleError {
+export interface SaleError {
     id_error?: number;
     error_number: number;
     error_description: string;
