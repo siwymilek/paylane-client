@@ -1,4 +1,5 @@
 import got from 'got';
+import { createBanktransfersEndpoint } from './endpoints/banktransfers/banktransfers';
 import { createCardsEndpoint } from './endpoints/cards/cards';
 import { createDirectdebitsEndpoint } from './endpoints/directdebits/directdebits';
 import { createPaypalEndpoint } from './endpoints/paypal/paypal';
@@ -26,6 +27,7 @@ export const setup = (credentials: PaylaneCredentials) => {
     });
 
     return {
+        banktransfers: createBanktransfersEndpoint(client),
         card: createCardsEndpoint(client),
         directdebits: createDirectdebitsEndpoint(client),
         paypal: createPaypalEndpoint(client),
