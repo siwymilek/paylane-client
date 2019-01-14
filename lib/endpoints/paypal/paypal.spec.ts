@@ -37,4 +37,18 @@ describe('paypal', () => {
             });
         });
     });
+
+    describe('authorization()', () => {
+        beforeEach(() => paypalEndpoint.authorization(requestParams));
+
+        it('should call http client with proper uri and params', () => {
+            expect(mockedGot.post).toHaveBeenCalled();
+            const [uri, params] = mockedGot.post.mock.calls[0];
+
+            expect(uri).toEqual('/paypal/authorization');
+            expect(params).toMatchObject({
+                body: JSON.stringify(requestParams),
+            });
+        });
+    });
 });
