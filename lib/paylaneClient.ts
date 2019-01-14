@@ -3,6 +3,7 @@ import { createBanktransfersEndpoint } from './endpoints/banktransfers/banktrans
 import { createCardsEndpoint } from './endpoints/cards/cards';
 import { createDirectdebitsEndpoint } from './endpoints/directdebits/directdebits';
 import { createPaypalEndpoint } from './endpoints/paypal/paypal';
+import { createSofortEndpoint } from './endpoints/sofort/sofort';
 
 type gotWithExtend = typeof got & {
     extend(options: got.GotJSONOptions): typeof got;
@@ -31,5 +32,6 @@ export const setup = (credentials: PaylaneCredentials) => {
         card: createCardsEndpoint(client),
         directdebits: createDirectdebitsEndpoint(client),
         paypal: createPaypalEndpoint(client),
+        sofort: createSofortEndpoint(client),
     };
 };
