@@ -1,4 +1,4 @@
-import { Sale } from './Sale';
+import { Sale } from '../../../common/dto/Sale';
 
 export interface AuthorizationRequest {
     sale: Sale;

@@ -1,7 +1,7 @@
-import { GenericPaylaneError } from '../../../common/dto/GenericPaylaneError';
+import { PaylaneError } from '../../../common/dto/PaylaneError';
 
 export interface CheckResponse {
     success: boolean;
     card_type: string;
-    error: GenericPaylaneError;
+    error: PaylaneError;
 }
