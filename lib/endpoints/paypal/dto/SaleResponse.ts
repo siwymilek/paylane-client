@@ -1,10 +1,8 @@
 import { SaleError } from '../../../common/dto/SaleError';
 
 export interface SaleResponse {
-    error?: SaleError;
-    success: true;
+    redirect_url: string;
     id_sale: number;
-    avs_result: string;
-    fraud_score: number;
-    id_account: number;
+    success: boolean;
+    error?: SaleError;
 }

@@ -1,6 +1,6 @@
 import { Customer } from '../../../common/dto/Customer';
-import { Sale } from '../../../common/dto/Sale';
 import { Card } from './Card';
+import { Sale } from './Sale';
 
 export interface SaleRequest {
     sale: Sale;

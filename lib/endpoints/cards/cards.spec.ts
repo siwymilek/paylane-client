@@ -2,7 +2,7 @@ import got from 'got';
 import { createCardsEndpoint } from './cards';
 jest.mock('got');
 
-describe('Cards', () => {
+describe('cards', () => {
     let cardsEndpoint: ReturnType<typeof createCardsEndpoint>;
     let mockedGot: jest.Mocked<typeof got>;
 
