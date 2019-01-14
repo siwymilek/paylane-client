@@ -29,6 +29,9 @@ describe('paylaneClient', () => {
         it('should return and object with base uri components as keys', () => {
             expect(client.card).toBeDefined();
             expect(client.paypal).toBeDefined();
+            expect(client.sofort).toBeDefined();
+            expect(client.banktransfers).toBeDefined();
+            expect(client.directdebits).toBeDefined();
         });
     });
 });
