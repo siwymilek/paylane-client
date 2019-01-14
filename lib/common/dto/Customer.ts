@@ -1,8 +1,8 @@
 import { Address } from './Address';
 
 export interface Customer {
-    name: string;
+    name?: string;
     email: string;
     ip: string;
-    address: Address;
+    address?: Address;
 }

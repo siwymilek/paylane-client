@@ -1,7 +1,8 @@
 import got from 'got';
+import { createCardsEndpoint } from './endpoints/cards/cards';
 
 type gotWithExtend = typeof got & {
-    extend<E extends string | null>(options: got.GotOptions<E>): typeof got;
+    extend(options: got.GotJSONOptions): typeof got;
 };
 
 interface PaylaneCredentials {
@@ -14,11 +15,15 @@ export const setup = (credentials: PaylaneCredentials) => {
         .map(encodeURIComponent)
         .join(':');
 
-    (got as gotWithExtend).extend({
+    const client = (got as gotWithExtend).extend({
         baseUrl: `https://${credentialsAsString}@direct.paylane.com/rest`,
+        headers: {
+            'Content-type': 'application/json',
+        },
+        json: true,
     });
 
     return {
-        card: {},
+        card: createCardsEndpoint(client),
     };
 };

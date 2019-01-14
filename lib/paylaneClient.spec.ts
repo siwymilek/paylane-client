@@ -9,7 +9,7 @@ describe('paylaneClient', () => {
         beforeAll(() => {
             client = paylaneClient.setup({
                 login: 'sample',
-                password: "password\\",
+                password: 'password\\',
             });
         });
 
@@ -19,6 +19,10 @@ describe('paylaneClient', () => {
                     .extend,
             ).toHaveBeenCalledWith({
                 baseUrl: `https://sample:password%5C@direct.paylane.com/rest`,
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                json: true,
             });
         });
 
