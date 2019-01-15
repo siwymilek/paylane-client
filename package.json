@@ -1,6 +1,6 @@
 {
     "name": "paylane-client",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Modern, Promise-based Paylane RESTful API client. Includes TypeScript definitions.",
     "repository": {
         "type": "git",
