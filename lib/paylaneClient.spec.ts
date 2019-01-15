@@ -33,6 +33,7 @@ describe('paylaneClient', () => {
             expect(client.banktransfers).toBeDefined();
             expect(client.directdebits).toBeDefined();
             expect(client.applepay).toBeDefined();
+            expect(client.refunds).toBeDefined();
         });
     });
 });
