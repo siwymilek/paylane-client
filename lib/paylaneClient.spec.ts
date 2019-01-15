@@ -38,6 +38,7 @@ describe('paylaneClient', () => {
             expect(client.authorizations).toBeDefined();
             expect(client.sales).toBeDefined();
             expect(client.secure3d).toBeDefined();
+            expect(client.bankcodes).toBeDefined();
         });
     });
 });

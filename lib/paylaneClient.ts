@@ -4,6 +4,7 @@ import { createAuthorizationsEndpoint } from './endpoints/authorizations/authori
 import { createBanktransfersEndpoint } from './endpoints/banktransfers/banktransfers';
 import { createCardsEndpoint } from './endpoints/cards/cards';
 import { createDirectdebitsEndpoint } from './endpoints/directdebits/directdebits';
+import { createIdealEndpoint } from './endpoints/ideal/ideal';
 import { createPaypalEndpoint } from './endpoints/paypal/paypal';
 import { createRefundsEndpoint } from './endpoints/refunds/refunds';
 import { createResalesEndpoint } from './endpoints/resales/resales';
@@ -36,6 +37,7 @@ export const setup = (credentials: PaylaneCredentials) => {
     return {
         applepay: createApplepayEndpoint(client),
         authorizations: createAuthorizationsEndpoint(client),
+        bankcodes: createIdealEndpoint(client),
         banktransfers: createBanktransfersEndpoint(client),
         card: createCardsEndpoint(client),
         directdebits: createDirectdebitsEndpoint(client),
