@@ -1,4 +1,5 @@
 import got from 'got';
+import { createApplepayEndpoint } from './endpoints/applepay/applepay';
 import { createBanktransfersEndpoint } from './endpoints/banktransfers/banktransfers';
 import { createCardsEndpoint } from './endpoints/cards/cards';
 import { createDirectdebitsEndpoint } from './endpoints/directdebits/directdebits';
@@ -28,6 +29,7 @@ export const setup = (credentials: PaylaneCredentials) => {
     });
 
     return {
+        applepay: createApplepayEndpoint(client),
         banktransfers: createBanktransfersEndpoint(client),
         card: createCardsEndpoint(client),
         directdebits: createDirectdebitsEndpoint(client),
