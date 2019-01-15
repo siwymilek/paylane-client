@@ -1,4 +1,5 @@
 import got from 'got';
+import { create3dSecureEndpoint } from './endpoints/3dsecure/3dsecure';
 import { createApplepayEndpoint } from './endpoints/applepay/applepay';
 import { createAuthorizationsEndpoint } from './endpoints/authorizations/authorizations';
 import { createBanktransfersEndpoint } from './endpoints/banktransfers/banktransfers';
@@ -42,6 +43,7 @@ export const setup = (credentials: PaylaneCredentials) => {
         refunds: createRefundsEndpoint(client),
         resales: createResalesEndpoint(client),
         sales: createSalesEndpoint(client),
+        secure3D: create3dSecureEndpoint(client),
         sofort: createSofortEndpoint(client),
     };
 };
