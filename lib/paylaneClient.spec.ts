@@ -34,6 +34,7 @@ describe('paylaneClient', () => {
             expect(client.directdebits).toBeDefined();
             expect(client.applepay).toBeDefined();
             expect(client.refunds).toBeDefined();
+            expect(client.resales).toBeDefined();
             expect(client.authorizations).toBeDefined();
             expect(client.sales).toBeDefined();
         });

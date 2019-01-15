@@ -6,6 +6,7 @@ import { createCardsEndpoint } from './endpoints/cards/cards';
 import { createDirectdebitsEndpoint } from './endpoints/directdebits/directdebits';
 import { createPaypalEndpoint } from './endpoints/paypal/paypal';
 import { createRefundsEndpoint } from './endpoints/refunds/refunds';
+import { createResalesEndpoint } from './endpoints/resales/resales';
 import { createSalesEndpoint } from './endpoints/sales/sales';
 import { createSofortEndpoint } from './endpoints/sofort/sofort';
 
@@ -39,6 +40,7 @@ export const setup = (credentials: PaylaneCredentials) => {
         directdebits: createDirectdebitsEndpoint(client),
         paypal: createPaypalEndpoint(client),
         refunds: createRefundsEndpoint(client),
+        resales: createResalesEndpoint(client),
         sales: createSalesEndpoint(client),
         sofort: createSofortEndpoint(client),
     };
