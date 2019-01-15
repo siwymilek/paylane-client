@@ -39,7 +39,7 @@ describe('applepay', () => {
 
             expect(uri).toEqual('/applepay/sale');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -53,7 +53,7 @@ describe('applepay', () => {
 
             expect(uri).toEqual('/applepay/authorization');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });

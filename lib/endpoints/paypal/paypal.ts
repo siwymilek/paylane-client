@@ -1,29 +1,29 @@
-import { GotFn } from 'got';
+import { GotInstance } from '../../common/GotInstance';
 import { AuthorizationRequest } from './dto/AuthorizationRequest';
 import { AuthorizationResponse } from './dto/AuthorizationResponse';
 import { SaleRequest } from './dto/SaleRequest';
 import { SaleResponse } from './dto/SaleResponse';
 import { StopRecurringRequest } from './dto/StopRecurringRequest';
 
-export const createPaypalEndpoint = (httpClient: { post: GotFn }) => {
+export const createPaypalEndpoint = (gotInstance: GotInstance) => {
     return {
         async sale(paypalSale: SaleRequest) {
-            const response = await httpClient.post('/paypal/sale', {
-                body: JSON.stringify(paypalSale),
+            const response = await gotInstance.post('/paypal/sale', {
+                body: paypalSale,
             });
             return (response.body as unknown) as SaleResponse;
         },
 
         async authorization(paypalAuthorization: AuthorizationRequest) {
-            const response = await httpClient.post('/paypal/authorization', {
-                body: JSON.stringify(paypalAuthorization),
+            const response = await gotInstance.post('/paypal/authorization', {
+                body: paypalAuthorization,
             });
             return (response.body as unknown) as AuthorizationResponse;
         },
 
         async stopRecurring(stopRecurring: StopRecurringRequest) {
-            const response = await httpClient.post('/paypal/stopRecurring', {
-                body: JSON.stringify(stopRecurring),
+            const response = await gotInstance.post('/paypal/stopRecurring', {
+                body: stopRecurring,
             });
             return (response.body as unknown) as AuthorizationResponse;
         },

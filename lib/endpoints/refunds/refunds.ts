@@ -1,12 +1,12 @@
-import { GotFn } from 'got';
+import { GotInstance } from '../../common/GotInstance';
 import { RefundRequest } from './dto/RefundRequest';
 import { RefundResponse } from './dto/RefundResponse';
 
-export const createRefundsEndpoint = (httpClient: { post: GotFn }) => {
+export const createRefundsEndpoint = (gotInstance: GotInstance) => {
     return {
         async refund(refund: RefundRequest) {
-            const response = await httpClient.post('/refunds', {
-                body: JSON.stringify(refund),
+            const response = await gotInstance.post('/refunds', {
+                body: refund,
             });
             return (response.body as unknown) as RefundResponse;
         },

@@ -1,21 +1,24 @@
-import { GotFn } from 'got';
 import { SaleResponse } from '../../common/dto/SaleResponse';
+import { GotInstance } from '../../common/GotInstance';
 import { AuthorizationRequest } from './dto/AuthorizationRequest';
 import { AuthorizationResponse } from './dto/AuthorizationResponse';
 import { SaleRequest } from './dto/SaleRequest';
 
-export const createApplepayEndpoint = (httpClient: { post: GotFn }) => {
+export const createApplepayEndpoint = (gotInstance: GotInstance) => {
     return {
         async sale(applepaySale: SaleRequest) {
-            const response = await httpClient.post('/applepay/sale', {
-                body: JSON.stringify(applepaySale),
-            });
-            return (response.body as unknown) as SaleResponse;
+            const response = await gotInstance.post<SaleResponse>(
+                '/applepay/sale',
+                {
+                    body: applepaySale,
+                },
+            );
+            return response.body;
         },
 
         async authorization(authorization: AuthorizationRequest) {
-            const response = await httpClient.post('/applepay/authorization', {
-                body: JSON.stringify(authorization),
+            const response = await gotInstance.post('/applepay/authorization', {
+                body: authorization,
             });
             return (response.body as unknown) as AuthorizationResponse;
         },

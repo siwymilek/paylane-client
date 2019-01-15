@@ -48,7 +48,7 @@ describe('ideal', () => {
 
             expect(uri).toEqual('/ideal/sale');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });

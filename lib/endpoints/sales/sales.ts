@@ -1,21 +1,21 @@
-import { GotFn } from 'got';
+import { GotInstance } from '../../common/GotInstance';
 import { InfoRequest } from './dto/InfoRequest';
 import { InfoResponse } from './dto/InfoResponse';
 import { StatusRequest } from './dto/StatusRequest';
 import { StatusResponse } from './dto/StatusResponse';
 
-export const createSalesEndpoint = (httpClient: { post: GotFn }) => {
+export const createSalesEndpoint = (gotInstance: GotInstance) => {
     return {
         async info(infoRequest: InfoRequest) {
-            const response = await httpClient.post('/sales/info', {
-                body: JSON.stringify(infoRequest),
+            const response = await gotInstance.post('/sales/info', {
+                body: infoRequest,
             });
             return (response.body as unknown) as InfoResponse;
         },
 
         async status(statusRequest: StatusRequest) {
-            const response = await httpClient.post('/sales/status', {
-                body: JSON.stringify(statusRequest),
+            const response = await gotInstance.post('/sales/status', {
+                body: statusRequest,
             });
             return (response.body as unknown) as StatusResponse;
         },

@@ -33,7 +33,7 @@ describe('paypal', () => {
 
             expect(uri).toEqual('/paypal/sale');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -47,7 +47,7 @@ describe('paypal', () => {
 
             expect(uri).toEqual('/paypal/authorization');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -63,7 +63,7 @@ describe('paypal', () => {
 
             expect(uri).toEqual('/paypal/stopRecurring');
             expect(params).toMatchObject({
-                body: JSON.stringify({ id_paypal_recurring: 123 }),
+                body: { id_paypal_recurring: 123 },
             });
         });
     });

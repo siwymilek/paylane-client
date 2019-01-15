@@ -32,7 +32,7 @@ describe('authorizations', () => {
 
             expect(uri).toEqual('/authorizations/capture');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -50,7 +50,7 @@ describe('authorizations', () => {
 
             expect(uri).toEqual('/authorizations/close');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -68,7 +68,7 @@ describe('authorizations', () => {
 
             expect(uri).toEqual('/authorizations/info');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });

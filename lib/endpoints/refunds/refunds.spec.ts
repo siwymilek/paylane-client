@@ -29,7 +29,7 @@ describe('refunds', () => {
 
             expect(uri).toEqual('/refunds');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });

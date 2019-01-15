@@ -43,7 +43,7 @@ describe('cards', () => {
 
             expect(uri).toEqual('/cards/sale');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -64,12 +64,12 @@ describe('cards', () => {
 
             expect(uri).toEqual('/cards/saleByToken');
             expect(params).toMatchObject({
-                body: JSON.stringify({
+                body: {
                     ...requestParams,
                     card: {
                         token: 'abc',
                     },
-                }),
+                },
             });
         });
     });
@@ -83,7 +83,7 @@ describe('cards', () => {
 
             expect(uri).toEqual('/cards/authorization');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -104,12 +104,12 @@ describe('cards', () => {
 
             expect(uri).toEqual('/cards/authorizationByToken');
             expect(params).toMatchObject({
-                body: JSON.stringify({
+                body: {
                     ...requestParams,
                     card: {
                         token: 'abc',
                     },
-                }),
+                },
             });
         });
     });
@@ -128,10 +128,10 @@ describe('cards', () => {
 
             expect(uri).toEqual('/cards/generateToken');
             expect(params).toMatchObject({
-                body: JSON.stringify({
+                body: {
                     ...requestParams.card,
                     public_api_key: 'abc',
-                }),
+                },
             });
         });
     });
@@ -149,9 +149,9 @@ describe('cards', () => {
 
             expect(uri).toEqual('/cards/check');
             expect(params).toMatchObject({
-                body: JSON.stringify({
+                body: {
                     card_number: '123',
-                }),
+                },
             });
         });
     });
@@ -169,9 +169,9 @@ describe('cards', () => {
 
             expect(uri).toEqual('/cards/checkByToken');
             expect(params).toMatchObject({
-                body: JSON.stringify({
+                body: {
                     token: '123',
-                }),
+                },
             });
         });
     });

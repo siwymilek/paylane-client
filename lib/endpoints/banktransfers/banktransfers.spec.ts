@@ -38,7 +38,7 @@ describe('banktransfers', () => {
 
             expect(uri).toEqual('/banktransfers/sale');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });

@@ -43,7 +43,7 @@ describe('directdebits', () => {
 
             expect(uri).toEqual('/directdebits/sale');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });

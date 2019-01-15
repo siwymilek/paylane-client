@@ -37,7 +37,7 @@ describe('sofort', () => {
 
             expect(uri).toEqual('/sofort/sale');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });

@@ -7,7 +7,7 @@
     "scripts": {
         "test": "jest",
         "build": "rm -rf dist/* && tsc",
-        "prepublish": "npm run build"
+        "prepare": "npm run build"
     },
     "husky": {
         "hooks": {

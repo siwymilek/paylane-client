@@ -29,7 +29,7 @@ describe('sales', () => {
 
             expect(uri).toEqual('/sales/info');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -49,7 +49,7 @@ describe('sales', () => {
 
             expect(uri).toEqual('/sales/status');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });

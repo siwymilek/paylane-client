@@ -32,7 +32,7 @@ describe('resales', () => {
 
             expect(uri).toEqual('/resales/sale');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -53,7 +53,7 @@ describe('resales', () => {
 
             expect(uri).toEqual('/resales/authorization');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });

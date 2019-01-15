@@ -22,12 +22,17 @@ interface PaylaneCredentials {
 }
 
 export const setup = (credentials: PaylaneCredentials) => {
-    const credentialsAsString = [credentials.login, credentials.password]
-        .map(encodeURIComponent)
-        .join(':');
+    if (!credentials || !credentials.login || !credentials.password) {
+        throw new Error(
+            'Missing credentials, make sure to initialize Paylane Client properly',
+        );
+    }
+
+    const auth = `${credentials.login}:${credentials.password}`;
 
     const client = (got as gotWithExtend).extend({
-        baseUrl: `https://${credentialsAsString}@direct.paylane.com/rest`,
+        auth,
+        baseUrl: `https://direct.paylane.com/rest`,
         headers: {
             'Content-type': 'application/json',
         },
@@ -41,6 +46,7 @@ export const setup = (credentials: PaylaneCredentials) => {
         banktransfers: createBanktransfersEndpoint(client),
         card: createCardsEndpoint(client),
         directdebits: createDirectdebitsEndpoint(client),
+        ideal: createIdealEndpoint(client),
         paypal: createPaypalEndpoint(client),
         refunds: createRefundsEndpoint(client),
         resales: createResalesEndpoint(client),

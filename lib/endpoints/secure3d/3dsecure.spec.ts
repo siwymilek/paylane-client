@@ -49,7 +49,7 @@ describe('3dsecure', () => {
 
             expect(uri).toEqual('/3DSecure/checkCard');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -83,7 +83,7 @@ describe('3dsecure', () => {
 
             expect(uri).toEqual('/3DSecure/checkCardByToken');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
@@ -101,7 +101,7 @@ describe('3dsecure', () => {
 
             expect(uri).toEqual('/3DSecure/authSale');
             expect(params).toMatchObject({
-                body: JSON.stringify(requestParams),
+                body: requestParams,
             });
         });
     });
