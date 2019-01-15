@@ -1,7 +1,11 @@
 {
-    "name": "paylane-client",
+    "name": "@lgmys/paylane-client",
     "version": "1.0.0",
     "description": "Paylane RESTful API client",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lgmys/paylane-client.git"
+    },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
