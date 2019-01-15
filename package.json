@@ -1,7 +1,7 @@
 {
-    "name": "@lgmys/paylane-client",
+    "name": "paylane-client",
     "version": "1.0.1",
-    "description": "Paylane RESTful API client",
+    "description": "Modern, Promise-based Paylane RESTful API client. Includes TypeScript definitions.",
     "repository": {
         "type": "git",
         "url": "https://github.com/lgmys/paylane-client.git"
