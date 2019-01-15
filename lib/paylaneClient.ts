@@ -1,5 +1,4 @@
 import got from 'got';
-import { create3dSecureEndpoint } from './endpoints/3dsecure/3dsecure';
 import { createApplepayEndpoint } from './endpoints/applepay/applepay';
 import { createAuthorizationsEndpoint } from './endpoints/authorizations/authorizations';
 import { createBanktransfersEndpoint } from './endpoints/banktransfers/banktransfers';
@@ -9,6 +8,7 @@ import { createPaypalEndpoint } from './endpoints/paypal/paypal';
 import { createRefundsEndpoint } from './endpoints/refunds/refunds';
 import { createResalesEndpoint } from './endpoints/resales/resales';
 import { createSalesEndpoint } from './endpoints/sales/sales';
+import { create3dSecureEndpoint } from './endpoints/secure3d/3dsecure';
 import { createSofortEndpoint } from './endpoints/sofort/sofort';
 
 type gotWithExtend = typeof got & {
@@ -43,7 +43,7 @@ export const setup = (credentials: PaylaneCredentials) => {
         refunds: createRefundsEndpoint(client),
         resales: createResalesEndpoint(client),
         sales: createSalesEndpoint(client),
-        secure3D: create3dSecureEndpoint(client),
+        secure3d: create3dSecureEndpoint(client),
         sofort: createSofortEndpoint(client),
     };
 };
