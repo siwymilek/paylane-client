@@ -1,10 +1,13 @@
 {
     "name": "paylane-client",
-    "version": "0.0.1",
-    "description": "Paylane REST API client",
+    "version": "0.0.0",
+    "description": "Paylane RESTful API client",
     "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "build": "rm -rf dist/* && tsc",
+        "prepublish": "npm run build"
     },
     "husky": {
         "hooks": {
@@ -25,7 +28,6 @@
         "jest": "^23.6.0",
         "prettier": "^1.15.3",
         "ts-jest": "^23.10.5",
-        "ts-node": "^7.0.1",
         "tslint": "^5.12.0",
         "tslint-config-prettier": "^1.17.0",
         "typescript": "^3.2.2"
